@@ -1,0 +1,21 @@
+#-include Rules.make
+CC        = gcc 
+CFLAGS    = -Wall -O -g
+CXXFLAGS  = 
+INCLUDE   = -I ../include/zbar/include -I ../include/zbar/include/decoder
+TARGET    = libzbar.a
+LIBPATH   = ./lib/
+OBJ = ./obj
+
+vpath %.h ../include
+
+SRCS       = $(wildcard *.c)
+OBJS       = $(SRCS:.c=.o)
+$(OBJS):$(SRCS)
+	$(CC) $(CFLAGS) $(INCLUDE) -c $^
+	ar rcs $(TARGET) *.o          
+	mv $(TARGET) $(LIBPATH)
+	mv *.o $(OBJ)
+clean:
+	rm -f $(OBJ)/*
+	rm -f $(LIBPATH)*
