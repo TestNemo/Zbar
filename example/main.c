@@ -4970,8 +4970,8 @@ int Zbar_Test(void* raw, int width, int height)
     }
 
     /* clean up */
-   // zbar_image_destroy(image);
-   // zbar_image_scanner_destroy(scanner);
+    zbar_image_destroy(image);
+    zbar_image_scanner_destroy(scanner);
 
     return(0);
 }      

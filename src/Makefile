@@ -19,3 +19,4 @@ $(OBJS):$(SRCS)
 clean:
 	rm -f $(OBJ)/*
 	rm -f $(LIBPATH)*
+	rm -f *.o
